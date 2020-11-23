@@ -55,6 +55,7 @@ namespace Test004
                             using (StreamReader reader = new StreamReader(stream))
                             {
                                 var content = reader.ReadToEnd();
+                                Console.WriteLine("成功檢查:"+url);
                             }
                         }
                         catch{
@@ -65,6 +66,7 @@ namespace Test004
 
                     foreach(var url in fail_urls)
                     {
+                        Console.WriteLine("失敗檢查:"+url);
                         Send("失敗:"+url, "失敗:"+url);
                         //Console.WriteLine("失敗:"+url);
                         urls.TryRemove(url, out string _);
@@ -120,6 +122,7 @@ namespace Test004
                     var parse = System.Web.HttpUtility.ParseQueryString(qs.Value);
                     var url = parse["checkThisUrlEveryMin"];
                     urls.TryAdd(url,"");
+                    Console.WriteLine("成功新增:"+url);
                     await context.Response.WriteAsync(url);
                 });
             });
