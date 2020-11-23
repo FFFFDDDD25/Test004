@@ -70,7 +70,7 @@ namespace Test004
                         urls.TryRemove(url, out string _);
                     }
 
-                    Thread.Sleep(TimeSpan.FromSeconds(5));
+                    Thread.Sleep(TimeSpan.FromSeconds(60));
                 }
             }).Start();
         }
